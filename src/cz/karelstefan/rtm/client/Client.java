@@ -68,9 +68,10 @@ public class Client {
         String hash = calculateHash(params);
         params.put(PARAM_API_SIG, hash);
 
-        StringBuilder str = new StringBuilder(AUTH_URL);
+        StringBuilder str = new StringBuilder();
         for (Map.Entry<String, String> entry: params.entrySet()) {
             if (str.length() == 0) {
+                str.append(AUTH_URL);
                 str.append("?");
             } else {
                 str.append("&");
